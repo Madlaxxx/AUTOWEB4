@@ -21,12 +21,12 @@ describe("Github page tests", () => {
     expect(title2).toEqual(
       "GitHub for teams · Build like the best teams on the planet · GitHub"
     );
-  });
+  }, 10000);
 
   test("The first link attribute", async () => {
     const actual = await page.$eval("a", (link) => link.getAttribute("href"));
     expect(actual).toEqual("#start-of-content");
-  });
+  }, 10000);
 
   test("The page contains Sign in button", async () => {
     const btnSelector = ".btn-large-mktg.btn-mktg";
@@ -35,7 +35,7 @@ describe("Github page tests", () => {
     });
     const actual = await page.$eval(btnSelector, (link) => link.textContent);
     expect(actual).toContain("Get started with Team");
-  });
+  }, 10000);
 });
 
 describe("Homework's tests", () => {
@@ -47,17 +47,17 @@ describe("Homework's tests", () => {
     await page.goto("https://www.githubstatus.com/");
     const title = await page.title();
     expect(title).toContain("GitHub Status");
-  });
+  }, 10000);
 
   test("Shop", async () => {
     await page.goto("https://www.thegithubshop.com/");
     const title = await page.title();
     expect(title).toContain("The GitHub Shop");
-  });
+  }, 10000);
 
   test("Check Pricing page", async () => {
     await page.goto("https://github.com/pricing");
     const title = await page.title();
     expect(title).toContain("Pricing · Plans for every developer · GitHub");
-  });
+  }, 10000);
 });
